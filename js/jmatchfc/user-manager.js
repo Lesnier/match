@@ -70,14 +70,14 @@ function userLogin() {
                           });
         },
         success: function (response) {           
-        
+          $("#mensage").html("respuesta" + response);
             var a = JSON.parse(response);
             if (a.result[0].message == "true") {               
                 //$("#mensage").html("logueado");              
                  $.mobile.changePage("userProfile.html");
                  $.mobile.loading( "hide" );
             } else {
-                $("#mensage").html("error de usuario o contraseña");
+            //    $("#mensage").html("error de usuario o contraseña");
             }
 
         }
