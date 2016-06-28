@@ -1,0 +1,283 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+
+
+</head>
+
+<body>
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+
+    <meta name="description" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="js/jquery.mobile-1.4.5/demos/css/themes/default/jquery.mobile-1.4.5.min.css">
+
+    <script src="js/jquery/jquery-2.1.1.js"></script>
+
+    <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="css/machfc_style.css">
+
+    <link href="slim/slim.min.css" rel="stylesheet">
+
+    <script src="js/bibliotecaPalabras.js"></script>
+
+    <script src="slim/slim.kickstart.min.js"></script>
+
+
+    <link rel="stylesheet" href="pluguins/rating.start/scripts/rateit.css">
+
+    <script src="pluguins/rating.start/scripts/jquery.rateit.min.js"></script>
+
+    <div name="homePage" data-role="page">
+        <div class="ui-content">
+            <br>
+            <br>
+            <div align="center">
+                <img src="img/logov1.png" />
+            </div>
+            <br>
+            <br>
+            <br>
+            <a id="btn_login" href="#loginPage" data-role="button" data-theme="a"></a>
+            <a id="btn_register" href="#registerPage" data-role="button" data-theme="a"></a>
+            <br>
+            <!-- <label for="select-choice-1" class="select">Idioma:</label>-->
+            <select name="select-choice-1" id="select-choice-1" onchange="procesarCambioIdioma(this.value)">
+                <option value="ES">Español</option>
+                <option value="US">English</option>
+            </select>
+        </div>
+    </div>
+    <div id="registerPage" data-role="page">
+        <div class="ui-content">
+            <h2 id="titleRegister" style="color:#0C386F"></h2>
+            <div style="background-color: #D9C138; height: 1px"></div>
+            <br>
+            <input id="input_name" type="text" placeholder="" />
+            <input id="input_lastname" type="text" placeholder="" />
+            <input id="input_email" type="email" placeholder="" />
+            <input id="input_pass" type="password" placeholder="" />
+            <input id="input_repass" type="password" placeholder="" />
+            <a id="btn_register_to" onclick="userRegister()" href="#" data-role="button" class="ui-btn-icon-right" data-theme="a"></a>
+
+            <h4 id="orSignIn" style="text-align:center"></h4>
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-faceboock" style="background-color:#3B5998; text-shadow:none; color:#FFFFFF">Facebook
+                    </button>
+                </div>
+                <div class="ui-block-b">
+                    <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-google" style="background-color:#DD4B39; text-shadow:none; color:#FFFFFF">Google +
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loginPage" data-role="page">
+
+        <div class="ui-content">
+            <h2 id="titleLogin" style="color:#0C386F"></h2>
+            <div style="background-color: #D9C138; height: 1px"></div>
+            <br>
+            <p id="mensage"></p>
+            <input id="input_login_email" type="email" placeholder="Email" />
+            <input id="input_login_pass" type="password" placeholder="Password" />
+
+            <a id="btn_login_to" onclick="userLogin()" href="#" data-role="button" class="ui-btn-icon-right" data-theme="a"></a>
+            <br>
+            <div align="center">
+                <a id="btn_remember_pass" href="#" data-theme="a">Recordar contraseña</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="verificPage" data-role="page">
+        <div class="ui-content">
+            <h2 id="titleVerific" style="color:#0C386F"></h2>
+            <div style="background-color: #D9C138; height: 1px"></div>
+            <br>
+            <h4 id="text_verif_code"></h4>
+            <input id="input_verific_code" type="text" placeholder="" />
+            <a id="btn_send_code" href="#personalPage" data-role="button" class="ui-btn-icon-right" data-theme="a"></a>
+            <br>
+            <div align="center">
+                <a id="btn_resend_correo" href="#personalPage" data-theme="a">Reenviar correo</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="personalPage" data-role="page">
+        <div class="ui-content ">
+            <h2 id="titlePersonal" style="color:#0C386F"></h2>
+            <div style="background-color: #D9C138; height: 1px"></div>
+            <div align="center">
+                <h4 id="text_photoProfile" style="-webkit-margin-before: 0.7em;-webkit-margin-after: 0.7em"></h4>
+
+                <form id="form1" action="server/async.php" method="post" enctype="multipart/form-data">
+
+                    <div id="contenSlim" class="slim" data-label="Select profile Image..." data-ratio="1:1" data-size="180,180" data-min-size="180,180" style="width: 180px;height: 180px;background-image:url('img/profileImg.jpg')">
+                        <input type="file" required name="slim[]" id="slim" data-enhanced="none" style="opacity: 0" size="70" accept="text/plain;image/jpeg" />
+                        <p id="mensage"></p>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <input id="input_age" type="text" placeholder="" />
+            <input id="input_sex" type="text" placeholder="" />
+            <input id="input_nationality" type="password" placeholder="" />
+            <input id="input_phone" type="password" placeholder="" />
+            <a id="btn_next" href="userProfile.html" data-role="button" class="ui-btn-icon-right" data-theme="a" onclick="saveImagenToServer()"></a>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')
+
+    </script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script type="application/javascript">
+        function procesarCambioIdioma(current_Idiom_ID) {
+            changueIdiom(current_Idiom_ID);
+            setIdiomToControls();
+        }
+
+        function setIdiomToControls() {
+
+            //Controles pagina Home
+            $("#btn_register").text(register_Text);
+            $("#btn_login").text(login_Text);
+            //Controles pagina Registro
+            $("#titleRegister").text(title_register_page);
+            $("#btn_register_to").text(register_Text);
+            $("#input_name").attr('placeholder', input_name);
+            $("#input_lastname").attr('placeholder', input_lastname);
+            $("#input_email").attr('placeholder', input_email);
+            $("#input_pass").attr('placeholder', input_pass);
+            $("#input_repass").attr('placeholder', input_repass);
+            $("#orSignIn").text(or_Sign_in);
+            //Controles pagina Login
+            $("#titleLogin").text(title_login_page);
+            $("#input_login_email").attr('placeholder', input_email);
+            $("#input_login_pass").attr('placeholder', input_pass);
+            $("#btn_login_to").text(login_Text);
+            $("#btn_remember_pass").text(text_remember_pass);
+            //Controles pagina Verificacion
+            $("#titleVerific").text(title_verifier_page);
+            $("#text_verif_code").text(text_verific_code);
+            $("#input_verific_code").attr('placeholder', input_verific_code);
+            $("#btn_send_code").text(btn_send_code);
+            $("#btn_resend_correo").text(btn_resend_email);
+            //Controles pagina Datos Personales
+            $("#titlePersonal").text(title_Personal_Data_page);
+            $("#input_age").attr('placeholder', input_age_player);
+            $("#input_sex").attr('placeholder', input_sex);
+            $("#text_photoProfile").text(text_photo_perfil);
+            $("#input_nationality").attr('placeholder', input_nationality);
+            $("#input_phone").attr('placeholder', input_phone);
+            $("#btn_next").text(btn_next);
+
+        }
+
+        window.onload = function() {
+
+            procesarCambioIdioma(default_idiom);
+
+        }
+
+        $(document).ready(function() {
+
+        });
+
+
+        $('#personalPage').on('pagebeforeshow', function() {
+            var contSlim = document.getElementById("contenSlim");
+            var botones = contSlim.getElementsByTagName("button");
+            var botonedit = botones[0];
+            botonedit.setAttribute("class", "slim-btn slim-btn-remove ui-shadow ui-corner-all");
+            var botonremove = botones[1];
+            botonremove.setAttribute("class", "slim-btn slim-btn-edit ui-shadow ui-corner-all");
+            refreshPage();
+
+        });
+
+
+        function saveImagenToServer() {
+            var dataString = $('#form1').serialize();
+            $.ajax({
+                data: dataString,
+                url: 'server/async.php',
+                type: 'post',
+                beforeSend: function() {
+                    $("#mensage").html("Procesando, espere por favor...");
+                },
+                success: function(response) {
+                    $("#mensage").html(response);
+                }
+            });
+        }
+
+    </script>
+    <script>
+        $(function() {
+            $("[data-role='navbar']").navbar();
+            $("[data-role='header'], [data-role='footer']").toolbar();
+        });
+        // Update the contents of the toolbars
+        $(document).on("pagecontainerchange", function() {
+            // Each of the four pages in this demo has a data-title attribute
+            // which value is equal to the text of the nav button
+            // For example, on first page: <div data-role="page" data-title="Info">
+            var current = $(".ui-page-active").jqmData("title");
+            // Change the heading
+            $("[data-role='header'] h1").text(current);
+            // Remove active class from nav buttons
+            $("[data-role='navbar'] a.ui-btn-active").removeClass("ui-btn-active");
+            // Add active class to current nav button
+            $("[data-role='navbar'] a").each(function() {
+                if ($(this).attr("id") === current) {
+                    $(this).addClass("ui-btn-active");
+                }
+            });
+        });
+
+    </script>
+
+    <script src="js/jmatchfc/user-manager.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = 'https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</body>
+
+</html>

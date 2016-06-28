@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Play</title>
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+    <meta name="description" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="js/jquery.mobile-1.4.5/demos/css/themes/default/jquery.mobile-1.4.5.min.css">
+
+
+    <script src="js/jquery/jquery-2.1.1.js"></script>
+
+    <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="css/machfc_style.css">
+
+    <script>
+
+        $(function () {
+            $("[data-role='navbar']").navbar();
+            $("[data-role='header'], [data-role='footer']").toolbar();
+        });
+        // Update the contents of the toolbars
+        $(document).on("pagecontainerchange", function () {
+            // Each of the four pages in this demo has a data-title attribute
+            // which value is equal to the text of the nav button
+            // For example, on first page: <div data-role="page" data-title="Info">
+            var current = $(".ui-page-active").jqmData("title");
+            // Change the heading
+            $("[data-role='header'] h1").text(current);
+            // Remove active class from nav buttons
+            $("[data-role='navbar'] a.ui-btn-active").removeClass("ui-btn-active");
+            // Add active class to current nav button
+            $("[data-role='navbar'] a").each(function () {
+                if ($(this).attr("id") === current) {
+                    $(this).addClass("ui-btn-active");
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+<link href="slim/slim.min.css" rel="stylesheet">
+
+<script src="js/bibliotecaPalabras.js"></script>
+
+<script src="slim/slim.kickstart.min.js"></script>
+
+
+<div id="plays" data-role="page" data-title="Play">
+
+    <div data-role="panel" style="line-height: 0px" data-position-fixed="true" data-display="overlay" data-theme="a"
+         id="left-panel-play">     
+        <ul data-role="listview" data-divider-theme="a">
+                
+            <li data-role="list-divider" style="line-height: 1.3em">Payments</li>
+                
+            <li><a href="#">Make Payments</a></li>
+                
+            <li><a href="#">Payments Setting</a></li>
+                
+            <li data-role="list-divider" style="line-height: 1.3em">Setting</li>
+                
+            <li><a href="#">Personal Data</a></li>
+                
+            <li><a href="#">Exit</a></li>
+        </ul>
+    </div><!-- /panel -->
+
+
+    <div data-role="header" data-position="fixed" data-theme="a">
+        <a href="#left-panel-play" data-icon="bars" data-iconpos="notext" data-shadow="false"
+           data-iconshadow="false">Menu</a>
+        <h1></h1>
+    </div><!-- /header -->
+
+    <div class="ui-content" role="main">
+        Play
+    </div>
+
+
+    <div data-role="footer" data-position="fixed" data-theme="a">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="userProfile.html" data-icon="user" data-prefetch="true" data-transition="none"
+                       id="Profile"></a>
+                </li>
+                <li><a href="play.html" data-icon="star" data-prefetch="true" data-transition="none" id="Play"></a></li>
+                <li><a href="calendar.html" data-icon="calendar" data-prefetch="true"
+                       data-transition="none" id="Calendar"></a></li>
+                <li><a href="notification.html" data-icon="comment" data-prefetch="true" data-transition="none"
+                       id="Notification"><span
+                        style="font-size: 9px;color:#FFFFFF;background-color: tomato" class="ui-li-count">12</span></a>
+                </li>
+            </ul>
+        </div><!-- /navbar -->
+    </div><!-- /footer -->
+
+</div>
+
+</body>
+
+</html>
