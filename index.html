@@ -123,7 +123,7 @@
             <div align="center">
                 <h4 id="text_photoProfile" style="-webkit-margin-before: 0.7em;-webkit-margin-after: 0.7em"></h4>
 
-                <form id="form1" action="server/async.php" method="post" enctype="multipart/form-data">
+                <form id="form1" data-ajax="false" enctype="multipart/form-data">
 
                     <div id="contenSlim" class="slim" data-label="Select profile Image..." data-ratio="1:1" data-size="180,180" data-min-size="180,180" style="width: 180px;height: 180px;background-image:url('img/profileImg.jpg')">
                         <input type="file" required name="slim[]" id="slim" data-enhanced="none" style="opacity: 0" size="70" accept="text/plain;image/jpeg" />
@@ -136,11 +136,11 @@
             <input id="input_sex" type="text" placeholder="" />
             <input id="input_nationality" type="password" placeholder="" />
             <input id="input_phone" type="password" placeholder="" />
-            <a id="btn_next" href="userProfile.html" data-role="button" class="ui-btn-icon-right" data-theme="a" onclick="saveImagenToServer()"></a>
+            <a id="btn_next" href="userProfile.html" data-role="button" class="ui-btn-icon-right" data-theme="a" ></a>
         </div>
     </div>
 
-
+<!--onclick="saveImagenToServer()"-->
 
 
 
